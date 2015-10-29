@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+
+	<div ng-controller="myController1">
+        {{data.theVar}}
+    </div>
+
+    <div ng-controller="myController2">
+        {{data.theVar}}
+    </div>
+
+	<div ng-controller="MyController" >
+    	<div ng-click="myData.doClick()" style="cursor:pointer">Click here</div>
+    	
+    	<div ng-click="myData.doClick1($event)">Click here</div>
+    	
+    	<ul>
+        	<li ng-repeat="item in myData.items" ng-click="myData.doClick2(item, $event)">Click here</li>
+    	</ul>
+	</div>
+
+	<script src="app.js"></script>
+	
+</body>
+</html>
