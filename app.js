@@ -166,11 +166,10 @@ module.controller("MyController6", function($scope){
 		$invalid	The reverse of the $valid - false if the field (or all fields in the form) is valid, true if the field (or a single field in the for) is invalid.
      * */
     $scope.myForm.getFormFieldCssClass = function(ngModelController) {
-        //console.log("getting css class: " + ngModelController.$valid) ;
-        if(ngModelController.$pristine) 
+        console.log("getting css class: " + ngModelController.$valid) ;
+        /*if(ngModelController.$pristine) 
         	return "";
-        return 
-        	ngModelController.$valid ? "fieldValid" : "fieldInvalid";
+        return ngModelController.$valid ? "fieldValid" : "fieldInvalid";*/
     };
 });
 

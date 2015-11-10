@@ -80,6 +80,12 @@
 	        </select>
 	        
 	        <input type="text" ng-class="myForm.getFormFieldCssClass(myFormNg.name)" id="name" name="name" ng-model="myForm.name" ng-minlength="2"> Name <br/>
+	        
+	        <div ng-show="myFormNg.name.$invalid">
+	            You must enter a valid name.
+	        </div>
+	        
+	        <button ng-disabled="myFormNg.$invalid">Submit Form</button>
 	    </form>
 	
 	    <div>
