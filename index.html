@@ -4,6 +4,16 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    
+    <style>
+    .fieldValid {
+        border: 1px solid #00ff00;
+    }
+    .fieldInvalid {
+        border: 1px solid #ff0000;
+    }
+</style>
+    
 </head>
 
 <body ng-app="myapp">
@@ -26,7 +36,63 @@
     	</ul>
 	</div>
 
-	<script src="app.js"></script>
+	<div ng-controller="MyController3">
+        <input type="text" ng-model="data.myVar">
+        <span id="myVar"></span>
+    </div>
+
+	<div ng-controller="myController4">
+    	{{data.time}}<br/>
+    	<button ng-click="updateTime()">update time - ng-click</button>
+    	<button id="updateTimeButton"  >update time</button>
+	</div>
+
+	<div ng-controller="myController5" >
+	    <button ng-click="myData.doClick(item, $event)">Send AJAX Request</button>
+	    <br/>
+	    Data from server: {{myData.fromServer}}
+	  </div>
+
+	<div ng-controller="MyController6" >
+	    <form name="myFormNg" ng-submit="myForm.submitTheForm()">
+	        <input type="text" name="firstName" ng-model="myForm.firstName"> First name <br/>
+	        <input type="text" name="lastName"  ng-model="myForm.lastName" ng-minlength="5" ng-maxlength="12" ng-pattern="/^\d+$/" ng-required> Last name <br/>
+	        
+	        <input type="checkbox" ng-model="myForm.wantNewsletter" ng-true-value="yes" ng-false-value="no" >
+	        
+	        <input type="radio" ng-model="myForm.whichNewsletter" value="weeklyNews">    
+			<input type="radio" ng-model="myForm.whichNewsletter" value="monthlyNews">  
+			
+			<select ng-model="myForm.car">
+	            <option value="nissan">Nissan</option>
+	            <option value="toyota">Toyota</option>
+	            <option value="fiat">Fiat</option>
+	        </select>
+	        
+	        <select ng-model="myForm.phone" ng-options="obj.id as obj.name for obj in myForm.options">
+	        <option value="">Please choose a car</option>
+	        <!-- You can call functions: obj.id as getLabelName(obj) for obj in getOptionArray() -->
+	        <!-- You can iterates properties in an object: propName as propValue for (propName, propValue) in objectWithProperties -->
+	        </select>
+	        
+	        <select ng-model="myForm.phone" ng-options="obj.id as obj.name for obj in myForm.options" multiple="true">
+	        <option value="">Please choose a car</option>
+	        </select>
+	        
+	        <input type="text" ng-class="myForm.getFormFieldCssClass(myFormNg.name)" id="name" name="name" ng-model="myForm.name" ng-minlength="2"> Name <br/>
+	    </form>
 	
+	    <div>
+	        {{myForm.firstName}} {{myForm.lastName}}<br>
+	        {{myForm.wantNewsletter}}<br>
+	        {{myForm.whichNewsletter}}<br>
+	        {{myForm.car}}<br>
+	        {{myForm.phone}}<br>
+	    </div>    
+    
+	</div>
+
+	<script src="app.js"></script>
+	<script src="task1.js"></script>
 </body>
 </html>
